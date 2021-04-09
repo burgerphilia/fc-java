@@ -2,8 +2,11 @@ package com.example.fcjava.repository;
 
 import com.example.fcjava.FcJavaApplicationTests;
 import com.example.fcjava.model.entity.User;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.Table;
@@ -55,7 +58,19 @@ public class UserRepositoryTest extends FcJavaApplicationTests {
         });
     }
 
+    @Test
+    @Transactional
     public void delete() {
+        Optional<User> user = userRepository.findById(3L);
 
+        Assertions.assertTrue(user.isPresent());
+
+        user.ifPresent(selectUser -> {
+            userRepository.delete(selectUser);
+        });
+
+        Optional<User> deleteUser = userRepository.findById(3L);
+
+        Assertions.assertFalse(deleteUser.isPresent());
     }
 }

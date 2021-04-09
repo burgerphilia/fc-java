@@ -19,8 +19,8 @@ public class OrderDetailRepositoryTest extends FcJavaApplicationTests {
         OrderDetail orderDetail = new OrderDetail();
 
         orderDetail.setOrderAt(LocalDateTime.now());
-        orderDetail.setUserId(7L);
-        orderDetail.setItemId(1L);
+//        orderDetail.setUserId(7L);
+//        orderDetail.setItemId(1L);
 
         OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
         Assertions.assertNotNull(newOrderDetail);

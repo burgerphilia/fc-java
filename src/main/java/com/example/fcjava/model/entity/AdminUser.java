@@ -28,11 +28,11 @@ public class AdminUser {
 
     private String role;
 
-    private LocalDateTime lastLogAt;
+    private LocalDateTime lastLoginAt;
 
     private LocalDateTime passwordUpdatedAt;
 
-    private int logFailCount;
+    private int loginFailCount;
 
     private LocalDateTime registeredAt;
 
